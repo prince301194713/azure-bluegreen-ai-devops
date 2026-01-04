@@ -28,7 +28,14 @@ This architecture demonstrates an end-to-end Azure Blue-Green deployment using T
 
 > 📌 Architecture follows enterprise-grade Blue-Green deployment practices.
 
----
+## 🧱 Infrastructure Provisioned via Terraform
+
+![Resource Group](./screenshots/resource-group.png)
+
+All Azure resources are provisioned using **Terraform (Infrastructure as Code)** and
+grouped under a dedicated Azure Resource Group.  
+This ensures clean isolation, repeatability, and easy lifecycle management.
+
 
 ## ⚙️ Tech Stack
 
@@ -43,6 +50,15 @@ This architecture demonstrates an end-to-end Azure Blue-Green deployment using T
 | AI Concept | Deployment validation & decision support |
 
 ---
+
+## 🌐 Azure App Service
+
+![App Service](./screenshots/app-service.png)
+
+The application is hosted on **Azure App Service**, running on a dedicated App Service Plan.
+This provides managed scalability, availability, and seamless integration with
+Azure DevOps pipelines.
+
 
 ## 🚀 Deployment Flow (Step-by-Step)
 
@@ -60,6 +76,17 @@ This architecture demonstrates an end-to-end Azure Blue-Green deployment using T
 9. Resources can be stopped or deleted to control costs  
 
 ---
+
+## 🔵🟢 Blue-Green Deployment Slots (Zero Downtime)
+
+![Deployment Slots](./screenshots/deployment-slots.png)
+
+Azure App Service **deployment slots** are used to implement the Blue-Green strategy.
+New application versions are deployed to the **Green slot**, validated, and then
+swapped into production with **zero downtime**.
+
+The previous version remains available for **instant rollback** if needed.
+
 
 ## 🔐 Security & Cost Control
 
